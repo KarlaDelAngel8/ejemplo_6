@@ -1,0 +1,47 @@
+La persona que me califico es Itzia Ocejo me coloco la calificación de 5/5 teniendo puntos positivos al momento de ,la ejecución. Fue un buen ejercicio para aplicar lo aprendido en java 
+____________________________________
+package sa_sec4;
+
+import java.util.Scanner;           //Añadí import java.util.Scanner
+
+public class Codigo4 {
+
+    public static void main(String[] args) { //  main para que se pueda ejecutar.
+        Scanner s = new Scanner(System.in);
+        
+        System.out.print("Turno del jugador 1 (introduzca piedra, papel o tijeras): "); 
+        String j1 = s.nextLine();
+        
+        System.out.print("Turno del jugador 2 (introduzca piedra, papel o tijeras): ");//Corregí el mensaje del jugador 2 que decía "Turno del jugador 1".
+        String j2 = s.nextLine();
+        
+        if (j1.equals(j2)) {   // equals, que es el método correcto para comparar cadenas en Java.
+            System.out.println("Empate");
+        } else {
+            int g = 2;
+            switch(j1) {   //Eleji usar Swith switch  entradas en caso de ser invalidas
+                case "piedra":
+                    if (j2.equals("tijeras")) {
+                        g = 1;
+                    }
+                    break;
+                case "papel":
+                    if (j2.equals("piedra")) {
+                        g = 1;
+                    }
+                    break;
+                case "tijeras":
+                    if (j2.equals("papel")) {
+                        g = 1;
+                    }
+                    break;    //Añadí break
+                default:
+                    System.out.println("Entrada inválida por parte del jugador 1");
+                    return;
+            }
+            System.out.println("Gana el jugador " + g);
+        }
+        
+        s.close();
+    }
+}
